@@ -1,0 +1,34 @@
+package com.byted.camp.todolist.beans;
+
+/**
+ * Created on 2019/1/23.
+ *
+ * @author xuyingyi@bytedance.com (Yingyi Xu)
+ */
+public enum State {
+    /**
+     * 待办
+     */
+    TODO(0),
+    /**
+     * 完成
+     */
+    DONE(1);
+
+    public final int intValue;
+
+    State(int intValue) {
+        this.intValue = intValue;
+    }
+
+    public static State from(int intValue) {
+        for (State state : State.values()) {
+            if (state.intValue == intValue) {
+                return state;
+            }
+        }
+
+        // default
+        return TODO;
+    }
+}
